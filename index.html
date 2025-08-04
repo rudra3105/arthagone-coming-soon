@@ -56,18 +56,11 @@
       background-color: #e6b800;
     }
 
-    .image-gallery img {
-      width: 180px;
-      height: auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.08);
-      transition: transform 0.3s ease;
+    a .btn {
+      text-decoration: none;
     }
 
-    .image-gallery img:hover {
-      transform: scale(1.05);
-    }
-
+    /* ===== Feature Section ===== */
     .arthagone-features {
       display: flex;
       flex-wrap: wrap;
@@ -92,10 +85,11 @@
       transform: translateY(-5px);
     }
 
-    .icon {
-      font-size: 40px;
+    .feature-icon {
+      width: 50px;
+      height: auto;
       margin-bottom: 15px;
-      color: #fff;
+      /* No filter applied — original color retained */
     }
 
     .feature-box h4 {
@@ -110,6 +104,7 @@
       color: white;
     }
 
+    /* ===== Launch Info & Countdown ===== */
     .launch-info {
       text-align: center;
       background-color: #111;
@@ -126,10 +121,6 @@
       color: #ddd;
       font-size: 1rem;
       margin-bottom: 20px;
-    }
-
-    a .btn {
-      text-decoration: none;
     }
 
     .countdown-wrapper {
@@ -185,6 +176,7 @@
 </head>
 <body>
 
+  <!-- Header -->
   <div class="container">
     <img src="/logo.png" alt="Arthagone Logo" class="logo" />
     <h1>Goodbye Knee & Ankle Pain. Hello Arthagone.</h1>
@@ -192,34 +184,42 @@
     <p>Wear it. Feel the difference. No pills. No side effects.</p>
   </div>
 
+  <!-- Features Section -->
   <section class="arthagone-features">
     <div class="feature-box">
-      <div class="icon">💊❌</div>
-      <h4>No Medicine, No Side Effects</h4>
-      <p>Safe, natural pain relief without relying on drugs.</p>
+      <img src="/3.svg" alt="No Drugs" class="feature-icon" />
+      <h4>No Drugs, No Side Effects</h4>
+      <p>Natural pain relief without medication or harsh chemicals.</p>
     </div>
     <div class="feature-box">
-      <div class="icon">🔁💉</div>
-      <h4>Boosts Blood Flow Naturally</h4>
-      <p>Improves circulation to support joint recovery and mobility.</p>
+      <img src="/5.png" alt="Boost Blood Flow" class="feature-icon" />
+      <h4>Boosts Blood Flow</h4>
+      <p>Enhances circulation to reduce joint stiffness and pain.</p>
     </div>
     <div class="feature-box">
-      <div class="icon">🧘‍♂️♻️</div>
-      <h4>Comfortable & Reusable Belt</h4>
-      <p>Lightweight, flexible, and designed for all-day comfort.</p>
+      <img src="/2.svg" alt="Comfort" class="feature-icon" />
+      <h4>All-Day Comfort</h4>
+      <p>Flexible support that feels great and fits your lifestyle.</p>
     </div>
     <div class="feature-box">
-      <div class="icon">🌿</div>
-      <h4>Eco-Friendly & Non-Toxic</h4>
-      <p>Crafted with sustainable, body-safe, and eco-conscious materials.</p>
+      <img src="/1.svg" alt="Reusable" class="feature-icon" />
+      <h4>Reusable & Long-Lasting</h4>
+      <p>Durable, washable belt made to last through daily use.</p>
+    </div>
+    <div class="feature-box">
+      <img src="/4.jpg" alt="Eco-Friendly" class="feature-icon" />
+      <h4>Eco-Friendly Choice</h4>
+      <p>Crafted from sustainable materials for body & environment.</p>
     </div>
   </section>
 
+  <!-- Launch Info -->
   <div class="launch-info">
     <h2>🎉 Launching on 27th August 2025</h2>
     <p>🚀 Limited early access for the first <strong>100 users</strong>. Pre-book now to secure yours!</p>
   </div>
 
+  <!-- Countdown Timer -->
   <div class="countdown-wrapper">
     <h2>⏳ Time Left Until Launch</h2>
     <div id="countdown">
@@ -230,6 +230,7 @@
     </div>
   </div>
 
+  <!-- CTA Section -->
   <div class="container">
     <h2>Pre-Book Your Arthagone™</h2>
     <p>Click the button below to pre-book</p>
@@ -238,6 +239,7 @@
     </a>
   </div>
 
+  <!-- Countdown Script -->
   <script>
     const targetDate = new Date("2025-08-27T00:00:00").getTime();
     const countdown = setInterval(() => {
