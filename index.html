@@ -56,14 +56,6 @@
       background-color: #e6b800;
     }
 
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px 20px;
-    }
-
     .image-gallery img {
       width: 180px;
       height: auto;
@@ -76,49 +68,52 @@
       transform: scale(1.05);
     }
 
-    .features-section {
-      background-color: #1a1a1a;
-      padding: 60px 20px 40px;
-      text-align: center;
-    }
-
-    .features-section h2 {
-      color: #ffcc00;
-      margin-bottom: 40px;
-      font-size: 1.8rem;
-    }
-
-    .features-grid {
+    .arthagone-features {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 30px;
+      padding: 60px 20px;
+      background-color: #111;
+      text-align: center;
     }
 
     .feature-box {
-      background-color: #222;
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 300px;
-      width: 100%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      flex: 1 1 220px;
+      max-width: 260px;
+      background-color: #111;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
     }
 
-    .feature-box h3 {
+    .feature-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 40px;
+      margin-bottom: 15px;
       color: #fff;
-      font-size: 1.1rem;
+    }
+
+    .feature-box h4 {
+      font-size: 16px;
       margin-bottom: 10px;
+      font-weight: 600;
+      color: white;
     }
 
     .feature-box p {
-      color: #ccc;
-      font-size: 0.95rem;
+      font-size: 14px;
+      color: white;
     }
-    
+
     .launch-info {
       text-align: center;
       background-color: #111;
-      padding: 40px 20px;
+      padding: 40px 20px 20px;
     }
 
     .launch-info h2 {
@@ -130,10 +125,46 @@
     .launch-info p {
       color: #ddd;
       font-size: 1rem;
+      margin-bottom: 20px;
     }
 
     a .btn {
       text-decoration: none;
+    }
+
+    .countdown-wrapper {
+      text-align: center;
+      padding: 20px 0 50px;
+      background: #111;
+      color: #ffcc00;
+    }
+
+    #countdown {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    #countdown div {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    #countdown span {
+      display: block;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    #countdown label {
+      font-size: 0.9rem;
+      color: #ccc;
     }
 
     @media (max-width: 768px) {
@@ -141,9 +172,13 @@
         font-size: 2rem;
       }
 
-      .image-gallery img {
-        width: 100%;
-        max-width: 300px;
+      .feature-box {
+        flex: 1 1 100%;
+      }
+
+      #countdown div {
+        width: 70px;
+        padding: 15px;
       }
     }
   </style>
@@ -151,99 +186,48 @@
 <body>
 
   <div class="container">
-    <!-- 🔶 Replace this with your actual logo URL -->
     <img src="/logo.png" alt="Arthagone Logo" class="logo" />
-
     <h1>Goodbye Knee & Ankle Pain. Hello Arthagone.</h1>
     <h2>India’s First Scientifically Designed Pain Relief Belt for Knees & Ankles.</h2>
     <p>Wear it. Feel the difference. No pills. No side effects.</p>
-
-    
   </div>
 
-  
-
-<style>
-.arthagone-features {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-  padding: 60px 20px;
- background-color: #111;
-color: #f5f5f5;
-
-  text-align: center;
-}
-
-.feature-box {
-  flex: 1 1 220px;
-  max-width: 260px;
-  background-color: #111;
-color: #f5f5f5;
-
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease;
-}
-
-.feature-box:hover {
-  transform: translateY(-5px);
-}
-
-.icon {
-  font-size: 40px;
-  margin-bottom: 15px;
-  color: #000000; /* BLACK ICON COLOR */
-}
-
-.feature-box h4 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  color: #222;
-}
-
-.feature-box p {
-  font-size: 14px;
-  color: #555;
-}
-
-@media (max-width: 768px) {
-  .feature-box {
-    flex: 1 1 100%;
-  }
-}
-</style>
-
-<section class="arthagone-features">
-  <div class="feature-box">
-    <div class="icon">💊❌</div>
-    <h4 style="color: white;">No Medicine, No Side Effects</h4>
-    <p style="color: white;">Safe, natural pain relief without relying on drugs.</p>
-  </div>
-  <div class="feature-box">
-    <div class="icon">🔁💉</div>
-    <h4 style="color: white;">Boosts Blood Flow Naturally</h4>
-    <p style="color: white;">Improves circulation to support joint recovery and mobility.</p>
-  </div>
-  <div class="feature-box">
-    <div class="icon">🧘‍♂️♻️</div>
-    <h4 style="color: white;">Comfortable & Reusable Belt</h4>
-    <p style="color: white;">Lightweight, flexible, and designed for all-day comfort.</p>
-  </div>
-  <div class="feature-box">
-    <div class="icon">🌿</div>
-    <h4 style="color: white;">Eco-Friendly & Non-Toxic</h4>
-    <p style="color: white;">Crafted with sustainable, body-safe, and eco-conscious materials.</p>
-  </div>
-</section>
-
+  <section class="arthagone-features">
+    <div class="feature-box">
+      <div class="icon">💊❌</div>
+      <h4>No Medicine, No Side Effects</h4>
+      <p>Safe, natural pain relief without relying on drugs.</p>
+    </div>
+    <div class="feature-box">
+      <div class="icon">🔁💉</div>
+      <h4>Boosts Blood Flow Naturally</h4>
+      <p>Improves circulation to support joint recovery and mobility.</p>
+    </div>
+    <div class="feature-box">
+      <div class="icon">🧘‍♂️♻️</div>
+      <h4>Comfortable & Reusable Belt</h4>
+      <p>Lightweight, flexible, and designed for all-day comfort.</p>
+    </div>
+    <div class="feature-box">
+      <div class="icon">🌿</div>
+      <h4>Eco-Friendly & Non-Toxic</h4>
+      <p>Crafted with sustainable, body-safe, and eco-conscious materials.</p>
+    </div>
+  </section>
 
   <div class="launch-info">
     <h2>🎉 Launching on 27th August 2025</h2>
     <p>🚀 Limited early access for the first <strong>100 users</strong>. Pre-book now to secure yours!</p>
+  </div>
+
+  <div class="countdown-wrapper">
+    <h2>⏳ Time Left Until Launch</h2>
+    <div id="countdown">
+      <div><span id="days">00</span><label>Days</label></div>
+      <div><span id="hours">00</span><label>Hours</label></div>
+      <div><span id="minutes">00</span><label>Minutes</label></div>
+      <div><span id="seconds">00</span><label>Seconds</label></div>
+    </div>
   </div>
 
   <div class="container">
@@ -254,11 +238,28 @@ color: #f5f5f5;
     </a>
   </div>
 
- 
   <script>
-    function scrollToForm() {
-      document.getElementById("form-section").scrollIntoView({ behavior: "smooth" });
-    }
+    const targetDate = new Date("2025-08-27T00:00:00").getTime();
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "<p style='color: #fff;'>🎉 We Are Live!</p>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days;
+      document.getElementById("hours").innerText = hours;
+      document.getElementById("minutes").innerText = minutes;
+      document.getElementById("seconds").innerText = seconds;
+    }, 1000);
   </script>
 
 </body>
