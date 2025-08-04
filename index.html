@@ -114,7 +114,7 @@
       color: #ccc;
       font-size: 0.95rem;
     }
-
+    
     .launch-info {
       text-align: center;
       background-color: #111;
@@ -163,31 +163,83 @@
 
   
 
-  <div class="features-section">
-    <h2>Why Choose Arthagone™?</h2>
-    <div class="features-grid">
-      <div class="feature-box">
-        <h3>No Medicine. No Side Effects.</h3>
-        <p>A wearable solution — easy, safe, and side effect–free.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Boosts Blood Flow</h3>
-        <p>Promotes circulation to support joint healing and mobility.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Comfortable to Wear</h3>
-        <p>Soft, lightweight design built for comfort and flexibility.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Reusable & Easy to Maintain</h3>
-        <p>Long-lasting belt – ready to use again and again.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Eco-Friendly & Non-Toxic</h3>
-        <p>Crafted with sustainable, body-safe, and eco-conscious materials.</p>
-      </div>
-    </div>
+<style>
+.arthagone-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 60px 20px;
+ background-color: #111;
+color: #f5f5f5;
+
+  text-align: center;
+}
+
+.feature-box {
+  flex: 1 1 220px;
+  max-width: 260px;
+  background-color: #111;
+color: #f5f5f5;
+
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 40px;
+  margin-bottom: 15px;
+  color: #000000; /* BLACK ICON COLOR */
+}
+
+.feature-box h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #222;
+}
+
+.feature-box p {
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 768px) {
+  .feature-box {
+    flex: 1 1 100%;
+  }
+}
+</style>
+
+<section class="arthagone-features">
+  <div class="feature-box">
+    <div class="icon">💊❌</div>
+    <h4 style="color: white;">No Medicine, No Side Effects</h4>
+    <p style="color: white;">Safe, natural pain relief without relying on drugs.</p>
   </div>
+  <div class="feature-box">
+    <div class="icon">🔁💉</div>
+    <h4 style="color: white;">Boosts Blood Flow Naturally</h4>
+    <p style="color: white;">Improves circulation to support joint recovery and mobility.</p>
+  </div>
+  <div class="feature-box">
+    <div class="icon">🧘‍♂️♻️</div>
+    <h4 style="color: white;">Comfortable & Reusable Belt</h4>
+    <p style="color: white;">Lightweight, flexible, and designed for all-day comfort.</p>
+  </div>
+  <div class="feature-box">
+    <div class="icon">🌿</div>
+    <h4 style="color: white;">Eco-Friendly & Non-Toxic</h4>
+    <p style="color: white;">Crafted with sustainable, body-safe, and eco-conscious materials.</p>
+  </div>
+</section>
+
 
   <div class="launch-info">
     <h2>🎉 Launching on 27th August 2025</h2>
@@ -195,20 +247,14 @@
   </div>
 
   <div class="container">
-    <h2>Pre-Book Your Arthagone™ Belt</h2>
+    <h2>Pre-Book Your Arthagone™</h2>
     <p>Click the button below to pre-book</p>
     <a href="https://wa.me/919876543210?text=I'm%20interested%20in%20pre-booking%20Arthagone" target="_blank">
       <button class="btn">🔵 Pre-Book</button>
     </a>
   </div>
 
-  <div class="image-gallery">
-    <img src="/1.svg" alt="Image 1" />
-    <img src="/2.svg" alt="Image 2" />
-    <img src="/3.svg" alt="Image 3" />
-    <img src="/4.jpg" alt="Image 4" />
-    <img src="/5.png" alt="Image 5" />
-  </div>
+ 
   <script>
     function scrollToForm() {
       document.getElementById("form-section").scrollIntoView({ behavior: "smooth" });
