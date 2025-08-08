@@ -54,7 +54,30 @@
     .launch {
         font-size: 1.2rem;
         font-weight: 700;
+        margin-bottom: 15px;
+    }
+    /* Countdown styling */
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
         margin-bottom: 25px;
+    }
+    .countdown div {
+        background: #fff;
+        border: 2px dashed #000;
+        border-radius: 8px;
+        padding: 15px;
+        width: 80px;
+    }
+    .countdown span {
+        display: block;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+    .countdown small {
+        font-size: 0.8rem;
+        color: #333;
     }
     .btn {
         background: #ffde00;
@@ -129,6 +152,13 @@
         p, .launch {
             font-size: 1rem;
         }
+        .countdown div {
+            width: 65px;
+            padding: 10px;
+        }
+        .countdown span {
+            font-size: 1.2rem;
+        }
     }
 </style>
 </head>
@@ -147,6 +177,14 @@
 
         <!-- Launch Info -->
         <div class="launch">Launching globally on 27th August 2025</div>
+
+        <!-- Countdown Timer -->
+        <div class="countdown">
+            <div><span id="days">0</span><small>Days</small></div>
+            <div><span id="hours">0</span><small>Hours</small></div>
+            <div><span id="minutes">0</span><small>Minutes</small></div>
+            <div><span id="seconds">0</span><small>Seconds</small></div>
+        </div>
 
         <!-- Button -->
         <button class="btn" id="openForm">Free Registration Now</button>
@@ -169,23 +207,32 @@
 </div>
 
 <script>
+    // Popup functionality
     const openForm = document.getElementById('openForm');
     const closeForm = document.getElementById('closeForm');
     const popupForm = document.getElementById('popupForm');
 
-    openForm.addEventListener('click', () => {
-        popupForm.style.display = 'flex';
-    });
+    openForm.addEventListener('click', () => popupForm.style.display = 'flex');
+    closeForm.addEventListener('click', () => popupForm.style.display = 'none');
+    window.addEventListener('click', (e) => { if (e.target === popupForm) popupForm.style.display = 'none'; });
 
-    closeForm.addEventListener('click', () => {
-        popupForm.style.display = 'none';
-    });
+    // Countdown Timer
+    const targetDate = new Date("August 27, 2025 00:00:00").getTime();
+    const timer = setInterval(() => {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
 
-    window.addEventListener('click', (e) => {
-        if (e.target === popupForm) {
-            popupForm.style.display = 'none';
+        if (distance < 0) {
+            clearInterval(timer);
+            document.querySelector('.countdown').innerHTML = "<p>We're Live!</p>";
+            return;
         }
-    });
+
+        document.getElementById('days').innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById('minutes').innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('seconds').innerText = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
 </script>
 
 </body>
