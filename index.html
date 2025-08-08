@@ -19,7 +19,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        background: url('Arthagone.jpg') no-repeat center center/cover;
+        background: url('/assets/img/6.jpg') no-repeat center center/cover;
     }
     .overlay {
         background: rgba(255, 255, 255, 0.75);
@@ -33,7 +33,10 @@
     .content {
         max-width: 800px;
     }
-    
+    .logo {
+        width: 100px;
+        margin-bottom: 20px;
+    }
     h1 {
         font-size: 2rem;
         font-weight: 900;
@@ -61,10 +64,64 @@
         text-decoration: none;
         border-radius: 50px;
         transition: background 0.3s ease;
+        cursor: pointer;
     }
     .btn:hover {
         background: #ffcc00;
     }
+
+    /* Popup Form */
+    .popup {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    .popup-content {
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 400px;
+        text-align: left;
+        position: relative;
+    }
+    .popup-content h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .popup-content input, .popup-content textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        font-size: 20px;
+        cursor: pointer;
+        color: #666;
+    }
+    .submit-btn {
+        width: 100%;
+        background: #ffde00;
+        border: none;
+        padding: 10px;
+        font-weight: bold;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .submit-btn:hover {
+        background: #ffcc00;
+    }
+
     @media (max-width: 600px) {
         h1 {
             font-size: 1.5rem;
@@ -80,7 +137,7 @@
 <div class="overlay">
     <div class="content">
         <!-- Logo -->
-        <img src="logo.png" alt="Arthagone Logo" class="logo" style: "width: 150px;">
+        <img src="logo.png" alt="Arthagone Logo" class="logo">
 
         <!-- Headline -->
         <h1>A movement to help you <span>move again...</span></h1>
@@ -92,9 +149,44 @@
         <div class="launch">Launching globally on 27th August 2025</div>
 
         <!-- Button -->
-        <a href="#" class="btn">Free Registration Now</a>
+        <button class="btn" id="openForm">Free Registration Now</button>
     </div>
 </div>
+
+<!-- Popup Form -->
+<div class="popup" id="popupForm">
+    <div class="popup-content">
+        <span class="close-btn" id="closeForm">&times;</span>
+        <h2>Pre-Booking Form</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Your Phone Number" required>
+            <textarea name="message" placeholder="Message (Optional)" rows="3"></textarea>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    const openForm = document.getElementById('openForm');
+    const closeForm = document.getElementById('closeForm');
+    const popupForm = document.getElementById('popupForm');
+
+    openForm.addEventListener('click', () => {
+        popupForm.style.display = 'flex';
+    });
+
+    closeForm.addEventListener('click', () => {
+        popupForm.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+        if (e.target === popupForm) {
+            popupForm.style.display = 'none';
+        }
+    });
+</script>
 
 </body>
 </html>
