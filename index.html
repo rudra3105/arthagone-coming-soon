@@ -192,29 +192,62 @@
 </div>
 
 <!-- Popup Form -->
+
 <div class="popup" id="popupForm">
     <div class="popup-content">
         <span class="close-btn" id="closeForm">&times;</span>
         <h2>Pre-Booking Form</h2>
-        <form action="#" method="post">
-            <input type="text" name="name" placeholder="Your Name" required>
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="tel" name="phone" placeholder="Your Phone Number" required>
-            <textarea name="message" placeholder="Message (Optional)" rows="3"></textarea>
+        <form id="bookingForm" action="https://api.web3forms.com/submit" method="POST">
+            <!-- Web3Forms API Key -->
+            <input type="hidden" name="access_key" value="f5567d37-c137-4ed3-9ca7-c9e688840759">
+
+            <input type="text" name="name" id="name" placeholder="Your Name" required>
+            <input type="email" name="email" id="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" required>
+            <textarea name="message" id="message" placeholder="Message (Optional)" rows="3"></textarea>
+
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
 </div>
 
 <script>
-    // Popup functionality
+    // Popup open/close
     const openForm = document.getElementById('openForm');
     const closeForm = document.getElementById('closeForm');
     const popupForm = document.getElementById('popupForm');
 
     openForm.addEventListener('click', () => popupForm.style.display = 'flex');
     closeForm.addEventListener('click', () => popupForm.style.display = 'none');
-    window.addEventListener('click', (e) => { if (e.target === popupForm) popupForm.style.display = 'none'; });
+    window.addEventListener('click', (e) => {
+        if (e.target === popupForm) popupForm.style.display = 'none';
+    });
+
+    // Form validation before submit
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const phonePattern = /^[0-9]{7,15}$/;
+
+        if (name.length < 2) {
+            alert("Please enter your full name.");
+            e.preventDefault();
+            return;
+        }
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            e.preventDefault();
+            return;
+        }
+        if (!phonePattern.test(phone)) {
+            alert("Please enter a valid phone number (7-15 digits).");
+            e.preventDefault();
+            return;
+        }
+    });
+</script>
 
     // Countdown Timer
     const targetDate = new Date("August 27, 2025 00:00:00").getTime();
